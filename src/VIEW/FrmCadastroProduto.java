@@ -6,6 +6,8 @@ package VIEW;
 
 import DAO.ProdutoDao;
 import DTO.CadProdutoDTO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -96,29 +98,31 @@ public class FrmCadastroProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(txtNomeProd)
-                            .addComponent(txtFornProd)
-                            .addComponent(intQuantProd)
-                            .addComponent(txtPrecoVend)
-                            .addComponent(txtCodProd)
-                            .addComponent(txtMarcaProd)
-                            .addComponent(jLabel8)
-                            .addComponent(txtTipoProd, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNomeProd, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFornProd, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(intQuantProd, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPrecoVend, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMarcaProd, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTipoProd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
+                                    .addComponent(txtCodProd, javax.swing.GroupLayout.Alignment.LEADING)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(btnProximo)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +174,7 @@ public class FrmCadastroProduto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodProdActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
-        int codProduto;
+        int codProduto; //id
         String nomeProduto;
         String marcaProduto;
         String fornecedorProd;
@@ -178,16 +182,16 @@ public class FrmCadastroProduto extends javax.swing.JFrame {
         double precoVenda;
         String tipoProduto; 
         
-        codProduto = txtCodProd.getText(); //preciso conseguir mudar o tipo do campo text para um campo numerico
+        codProduto = Integer.parseInt(txtCodProd.getText()); 
         nomeProduto = txtNomeProd.getText();
         marcaProduto= txtMarcaProd.getText();
         fornecedorProd = txtFornProd.getText();
-        quantProd = intQuantProd.getText();
-        precoVenda = txtPrecoVend.getText();//variaveis de tipos incompativeis
+        quantProd = Integer.parseInt(intQuantProd.getText());
+        precoVenda = Double.parseDouble(txtPrecoVend.getText());
         tipoProduto = txtTipoProd.getText();
         
         CadProdutoDTO objProdutoDto = new CadProdutoDTO();
-        objProdutoDto.setCodProduto(codProduto);
+        objProdutoDto.setCodProduto(codProduto); 
         objProdutoDto.setNomeProduto(nomeProduto);
         objProdutoDto.setMarcaProduto(marcaProduto);
         objProdutoDto.setFornecedorProd(fornecedorProd);
@@ -196,7 +200,11 @@ public class FrmCadastroProduto extends javax.swing.JFrame {
         objProdutoDto.setTipoProduto(tipoProduto);
         
         ProdutoDao objProdutoDao = new ProdutoDao();
-        objProdutoDao.cadastrarProduto(objProdutoDto);
+        try {
+            objProdutoDao.cadastrarProduto(objProdutoDto);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FrmCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_btnProximoActionPerformed
 

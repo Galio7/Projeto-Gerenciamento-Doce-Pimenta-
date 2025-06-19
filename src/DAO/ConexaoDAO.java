@@ -6,13 +6,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexaoDAO {
-    public Connection conectaBD(){
-        Connection conexao= null;
-        
+
+    public Connection conectaBD() throws ClassNotFoundException {
+        Connection conexao = null;
+
         try {
-            String url= "jdbc:mysql://localhost:3306/BD_Loja_Doce_Pimenta?user=root&password=Nique@22";
-            conexao= DriverManager.getConnection(url);
-                    
+            
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/docepimenta_bd?user=MoniqueEvelin&password=Monique@Evelin";
+            conexao = DriverManager.getConnection(url);
+
+            if (conexao != null) {
+                System.out.println("Conexão realizada com sucesso!");
+            } else {
+                System.out.println("Falha na conexão.");
+            }
+
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "ConexaoDAO" + erro.getMessage());
         }

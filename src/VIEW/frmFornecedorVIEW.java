@@ -4,6 +4,8 @@
  */
 package VIEW;
 
+//aqui não precisa criar variável para armazenar o id porque ele é autoincrement no banco de dados
+//quer dizer que já é gerado automaticamente toda vez que um novo dado é inserido
 /**
  *
  * @author Admin

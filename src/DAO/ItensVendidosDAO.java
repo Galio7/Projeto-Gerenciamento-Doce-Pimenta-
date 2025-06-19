@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ItensVendidosDAO {
-    public void salvar(ItensVendidosDTO dto) {
+    public void salvar(ItensVendidosDTO dto) throws ClassNotFoundException {
         String sql = "INSERT INTO itens_vendidos (tipo_produto, nome_produto, marca, quantidade, preco_unitario, subtotal) VALUES (?, ?, ?, ?, ?, ?)";
         Connection conn = new ConexaoDAO().conectaBD();
 
