@@ -13,7 +13,7 @@ public class ConexaoDAO {
         try {
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/docepimenta_bd?user=MoniqueEvelin&password=Monique@Evelin";
+            String url = "jdbc:mysql://localhost:3306/doce_pimenta?user=root&password=Nique@22";
             conexao = DriverManager.getConnection(url);
 
             if (conexao != null) {
