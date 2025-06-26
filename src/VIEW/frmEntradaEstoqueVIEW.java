@@ -125,7 +125,7 @@ public class frmEntradaEstoqueVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dataAquisicaotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataAquisicaotxtActionPerformed
-        // TODO add your handling code here:
+        itensVendidostxt.requestFocus();
     }//GEN-LAST:event_dataAquisicaotxtActionPerformed
 
     /**
