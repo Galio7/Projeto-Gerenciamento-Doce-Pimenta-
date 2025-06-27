@@ -1,13 +1,29 @@
 package DTO;
 
-public class CadFornecedorDTO {
-    
+import java.io.Serializable;
+
+public class CadFornecedorDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String nomeEmpresa;
     private String nomeFornecedor;
     private String fornecedorProd;
     private String cnpj;
     private String telefone;
     private String nomeEntregador;
+
+    public CadFornecedorDTO() {
+    }
+
+    public CadFornecedorDTO(String nomeEmpresa, String nomeFornecedor, String fornecedorProd,
+                             String cnpj, String telefone, String nomeEntregador) {
+        this.nomeEmpresa = nomeEmpresa;
+        this.nomeFornecedor = nomeFornecedor;
+        this.fornecedorProd = fornecedorProd;
+        this.cnpj = cnpj;
+        this.telefone = telefone;
+        this.nomeEntregador = nomeEntregador;
+    }
     
     
     //getter and setter
@@ -59,6 +75,13 @@ public class CadFornecedorDTO {
     public void setNomeEntregador(String nomeEntregador) {
         this.nomeEntregador = nomeEntregador;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "CadFornecedorDTO{" + "nomeEmpresa='" + nomeEmpresa + '\'' + ", nomeFornecedor='" + nomeFornecedor + '\''
+                + ", fornecedorProd='" + fornecedorProd + '\'' + ", cnpj='" + cnpj + '\''
+                + ", telefone='" + telefone + '\'' + ", nomeEntregador='" + nomeEntregador + '\'' + '}';
+    }
+
+
 }

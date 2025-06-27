@@ -1,12 +1,28 @@
 package DTO;
 
-public class ItensVendidosDTO {
+import java.io.Serializable;
+
+public class ItensVendidosDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String tipoProduto;
     private String nomeProduto;
     private String marca;
     private int quantidadeVendida;
     private double precoUnitario;
     private double subtotalVenda;
+
+    public ItensVendidosDTO() {
+    }
+
+    public ItensVendidosDTO(String tipoProduto, String nomeProduto, String marca,
+                             int quantidadeVendida, double precoUnitario, double subtotalVenda) {
+        this.tipoProduto = tipoProduto;
+        this.nomeProduto = nomeProduto;
+        this.marca = marca;
+        this.quantidadeVendida = quantidadeVendida;
+        this.precoUnitario = precoUnitario;
+        this.subtotalVenda = subtotalVenda;
+    }
 
     // Getters e Setters
     public String getTipoProduto() {
@@ -55,5 +71,12 @@ public class ItensVendidosDTO {
 
     public void setSubtotalVenda(double subtotalVenda) {
         this.subtotalVenda = subtotalVenda;
+    }
+
+    @Override
+    public String toString() {
+        return "ItensVendidosDTO{" + "tipoProduto='" + tipoProduto + '\'' + ", nomeProduto='" + nomeProduto + '\''
+                + ", marca='" + marca + '\'' + ", quantidadeVendida=" + quantidadeVendida
+                + ", precoUnitario=" + precoUnitario + ", subtotalVenda=" + subtotalVenda + '}';
     }
 }
