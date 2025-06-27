@@ -1,6 +1,10 @@
 package DTO;
 
-public class CadProdutoDTO {
+import java.io.Serializable;
+
+public class CadProdutoDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int codProduto;
     private String nomeProduto;
     private String marcaProduto;
@@ -8,6 +12,21 @@ public class CadProdutoDTO {
     private int quantProd;
     private double precoVenda;
     private String tipoProduto;
+
+    public CadProdutoDTO() {
+    }
+
+    public CadProdutoDTO(int codProduto, String nomeProduto, String marcaProduto,
+                         String fornecedorProd, int quantProd, double precoVenda,
+                         String tipoProduto) {
+        this.codProduto = codProduto;
+        this.nomeProduto = nomeProduto;
+        this.marcaProduto = marcaProduto;
+        this.fornecedorProd = fornecedorProd;
+        this.quantProd = quantProd;
+        this.precoVenda = precoVenda;
+        this.tipoProduto = tipoProduto;
+    }
     
     //getter and setter
     
@@ -66,5 +85,12 @@ public class CadProdutoDTO {
     public void setTipoProduto(String tipoProduto) {
         this.tipoProduto = tipoProduto;
     }
-    
+
+    @Override
+    public String toString() {
+        return "CadProdutoDTO{" + "codProduto=" + codProduto + ", nomeProduto='" + nomeProduto + '\''
+                + ", marcaProduto='" + marcaProduto + '\'' + ", fornecedorProd='" + fornecedorProd + '\''
+                + ", quantProd=" + quantProd + ", precoVenda=" + precoVenda + ", tipoProduto='" + tipoProduto + '\'' + '}';
+    }
+
 }

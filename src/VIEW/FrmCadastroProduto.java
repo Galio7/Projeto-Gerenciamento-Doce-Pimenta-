@@ -159,14 +159,8 @@ public class FrmCadastroProduto extends javax.swing.JFrame {
         precoVenda = Double.parseDouble(txtPrecoVend.getText());
         tipoProduto = txtTipoProd.getText();
         
-        CadProdutoDTO objProdutoDto = new CadProdutoDTO();
-        objProdutoDto.setCodProduto(codProduto); 
-        objProdutoDto.setNomeProduto(nomeProduto);
-        objProdutoDto.setMarcaProduto(marcaProduto);
-        objProdutoDto.setFornecedorProd(fornecedorProd);
-        objProdutoDto.setQuantProd(quantProd);
-        objProdutoDto.setPrecoVenda(precoVenda);
-        objProdutoDto.setTipoProduto(tipoProduto);
+        CadProdutoDTO objProdutoDto = new CadProdutoDTO(codProduto, nomeProduto,
+                marcaProduto, fornecedorProd, quantProd, precoVenda, tipoProduto);
         
         ProdutoDao objProdutoDao = new ProdutoDao();
         try {
