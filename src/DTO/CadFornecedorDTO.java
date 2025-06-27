@@ -5,8 +5,8 @@ public class CadFornecedorDTO {
     private String nomeEmpresa;
     private String nomeFornecedor;
     private String fornecedorProd;
-    private int cnpj;
-    private double telefone;
+    private String cnpj;
+    private String telefone;
     private String nomeEntregador;
     
     
@@ -36,19 +36,19 @@ public class CadFornecedorDTO {
         this.fornecedorProd = fornecedorProd;
     }
 
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
-    public double getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(double telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
