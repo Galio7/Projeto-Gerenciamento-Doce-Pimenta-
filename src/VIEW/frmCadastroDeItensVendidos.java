@@ -149,7 +149,14 @@ public class frmCadastroDeItensVendidos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void subtotVendastxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtotVendastxtActionPerformed
-        // TODO add your handling code here:
+        try {
+            int quantidade = Integer.parseInt(qtdetxt.getText());
+            double preco = Double.parseDouble(precoUnitVendatxt.getText());
+            double subtotal = quantidade * preco;
+            subtotVendastxt.setText(String.valueOf(subtotal));
+        } catch (NumberFormatException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_subtotVendastxtActionPerformed
 
     /**

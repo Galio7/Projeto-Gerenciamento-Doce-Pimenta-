@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
 import DAO.ProdutoDao;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author Gabrielly
@@ -142,15 +144,26 @@ public class FrmEstoque extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
+        String filtro = txtFiltro.getText();
+        DefaultTableModel model = (DefaultTableModel) tabelaEstoque.getModel();
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        tabelaEstoque.setRowSorter(sorter);
+        if (filtro.trim().isEmpty()) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter("(?i)" + filtro));
+        }
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
     private void btnNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoProdutoActionPerformed
-        // TODO add your handling code here:
+        FrmCadastroProduto tela = new FrmCadastroProduto();
+        tela.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnNovoProdutoActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        // TODO add your handling code here:
+        txtFiltro.setText("");
+        listarValoresProduto();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     /**

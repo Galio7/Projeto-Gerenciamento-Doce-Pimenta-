@@ -135,11 +135,11 @@ public class FrmCadastroProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtMarcaProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaProdActionPerformed
-        // TODO add your handling code here:
+        txtFornProd.requestFocus();
     }//GEN-LAST:event_txtMarcaProdActionPerformed
 
     private void txtCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodProdActionPerformed
-        // TODO add your handling code here:
+        txtNomeProd.requestFocus();
     }//GEN-LAST:event_txtCodProdActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
