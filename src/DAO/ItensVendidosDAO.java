@@ -25,4 +25,24 @@ public class ItensVendidosDAO {
             JOptionPane.showMessageDialog(null, "Erro ao salvar: " + erro.getMessage());
         }
     }
+    public java.util.List<ItensVendidosDTO> listarTodos() throws ClassNotFoundException {
+        String sql = "SELECT tipo_produto, nome_produto, marca, quantidade, preco_unitario, subtotal FROM itens_vendidos";
+        Connection conn = new ConexaoDAO().conectaBD();
+        java.util.List<ItensVendidosDTO> itens = new java.util.ArrayList<>();
+        try (PreparedStatement pstm = conn.prepareStatement(sql); java.sql.ResultSet rs = pstm.executeQuery()) {
+            while (rs.next()) {
+                ItensVendidosDTO dto = new ItensVendidosDTO();
+                dto.setTipoProduto(rs.getString("tipo_produto"));
+                dto.setNomeProduto(rs.getString("nome_produto"));
+                dto.setMarca(rs.getString("marca"));
+                dto.setQuantidadeVendida(rs.getInt("quantidade"));
+                dto.setPrecoUnitario(rs.getDouble("preco_unitario"));
+                dto.setSubtotalVenda(rs.getDouble("subtotal"));
+                itens.add(dto);
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao listar itens vendidos: " + erro.getMessage());
+        }
+        return itens;
+    }
 }
