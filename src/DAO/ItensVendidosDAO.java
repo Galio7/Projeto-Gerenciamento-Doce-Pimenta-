@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class ItensVendidosDAO {
     public void salvar(ItensVendidosDTO dto) throws ClassNotFoundException {
-        String sql = "INSERT INTO itens_vendidos (tipo_produto, nome_produto, marca, quantidade, preco_unitario, subtotal) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO itens_vendidos (tipo_produto, nome_produto, marca, quantidade, preco_unitario, subtotal, desconto, imposto, total) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Connection conn = new ConexaoDAO().conectaBD();
 
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
@@ -18,6 +18,9 @@ public class ItensVendidosDAO {
             pstm.setInt(4, dto.getQuantidadeVendida());
             pstm.setDouble(5, dto.getPrecoUnitario());
             pstm.setDouble(6, dto.getSubtotalVenda());
+            pstm.setDouble(7, dto.getDesconto());
+            pstm.setDouble(8, dto.getImposto());
+            pstm.setDouble(9, dto.getTotal());
 
             pstm.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
