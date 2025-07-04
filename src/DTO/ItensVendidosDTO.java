@@ -7,6 +7,9 @@ public class ItensVendidosDTO {
     private int quantidadeVendida;
     private double precoUnitario;
     private double subtotalVenda;
+    private double desconto;
+    private double imposto;
+    private double total;
 
     // Getters e Setters
     public String getTipoProduto() {
@@ -55,5 +58,29 @@ public class ItensVendidosDTO {
 
     public void setSubtotalVenda(double subtotalVenda) {
         this.subtotalVenda = subtotalVenda;
+    }
+
+    public double getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(double desconto) {
+        this.desconto = desconto;
+    }
+
+    public double getImposto() {
+        return imposto;
+    }
+
+    public void setImposto(double imposto) {
+        this.imposto = imposto;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }
